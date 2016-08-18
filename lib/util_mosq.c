@@ -106,7 +106,7 @@ void _mosquitto_check_keepalive(struct mosquitto *mosq)
 	next_msg_out = mosq->next_msg_out;
 	last_msg_in = mosq->last_msg_in;
 	pthread_mutex_unlock(&mosq->msgtime_mutex);
-	if(mosq->keepalive && mosq->sock != INVALID_SOCKET &&
+	if(mosq->keepalive && mosq->sock != INVALID_SOCKET && (!mosq->bridge || mosq->bridge->start_type != bst_lazy) && // don't keep-alive this for lazy bridges
 			(now >= next_msg_out || now - last_msg_in >= mosq->keepalive)){
 
 		if(mosq->state == mosq_cs_connected && mosq->ping_t == 0){
