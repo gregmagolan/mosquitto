@@ -248,7 +248,7 @@ int mosquitto_main_loop(struct mosquitto_db *db, mosq_sock_t *listensock, int li
 						context->bridge->restart_t = 0;
 						rc = mqtt3_bridge_connect(db, context);
 						if(rc == MOSQ_ERR_SUCCESS){
-							_mosquitto_log_printf(NULL, MOSQ_LOG_NOTICE, "Lazy bridge connected");
+							_mosquitto_log_printf(NULL, MOSQ_LOG_NOTICE, "Lazy bridge re-connected");
 							pollfds[pollfd_index].fd = context->sock;
 							pollfds[pollfd_index].events = POLLIN;
 							pollfds[pollfd_index].revents = 0;
@@ -271,7 +271,7 @@ int mosquitto_main_loop(struct mosquitto_db *db, mosq_sock_t *listensock, int li
 						context->bridge->restart_t = 0;
 						rc = mqtt3_bridge_connect(db, context);
 						if(rc == MOSQ_ERR_SUCCESS){
-							_mosquitto_log_printf(NULL, MOSQ_LOG_NOTICE, "Automatic bridge connected");
+							_mosquitto_log_printf(NULL, MOSQ_LOG_NOTICE, "Automatic bridge re-connected");
 							pollfds[pollfd_index].fd = context->sock;
 							pollfds[pollfd_index].events = POLLIN;
 							pollfds[pollfd_index].revents = 0;
