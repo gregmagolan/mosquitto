@@ -972,7 +972,6 @@ int _config_read_file_core(struct mqtt3_config *config, bool reload, const char 
 						_mosquitto_log_printf(NULL, MOSQ_LOG_NOTICE, "idle_timeout interval too low, using 1 second.");
 						cur_bridge->idle_timeout = 1;
 					}
-					_mosquitto_log_printf(NULL, MOSQ_LOG_NOTICE, "idle_timeout set to %d on bridge", cur_bridge->idle_timeout);
 #else
 					_mosquitto_log_printf(NULL, MOSQ_LOG_WARNING, "Warning: Bridge support not available.");
 #endif
@@ -1496,7 +1495,6 @@ int _config_read_file_core(struct mqtt3_config *config, bool reload, const char 
 						_mosquitto_log_printf(NULL, MOSQ_LOG_ERR, "Error: Empty start_type value in configuration.");
 						return MOSQ_ERR_INVAL;
 					}
-					_mosquitto_log_printf(NULL, MOSQ_LOG_NOTICE, "start_type set to %d on bridge", cur_bridge->start_type);
 #else
 					_mosquitto_log_printf(NULL, MOSQ_LOG_WARNING, "Warning: Bridge support not available.");
 #endif
